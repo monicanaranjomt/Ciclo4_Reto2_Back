@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.usa.Reto2.Controlador;
+package com.usa.Reto3.Controlador;
 
-import com.usa.Reto2.Modelo.Vegetarian;
-import com.usa.Reto2.Servicio.VegetarianService;
+import com.usa.Reto3.Modelo.Vegetarian;
+import com.usa.Reto3.Servicio.VegetarianService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

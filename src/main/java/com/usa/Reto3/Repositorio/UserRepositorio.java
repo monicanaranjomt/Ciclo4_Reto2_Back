@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.usa.Reto2.Repositorio;
+package com.usa.Reto3.Repositorio;
 
-import com.usa.Reto2.Interface.InterfaceUser;
-import com.usa.Reto2.Modelo.User;
+import com.usa.Reto3.Interface.InterfaceUser;
+import com.usa.Reto3.Modelo.User;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +46,9 @@ public class UserRepositorio {
         return userCrudRepository.findByEmailAndPassword(email, password);
     }
      
-     
+    public Optional<User> lastUserId(){
+        return userCrudRepository.findTopByOrderByIdDesc();
+    }
 }
    
 

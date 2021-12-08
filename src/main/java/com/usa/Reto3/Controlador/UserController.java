@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.usa.Reto2.Controlador;
+package com.usa.Reto3.Controlador;
 
-import com.usa.Reto2.Modelo.User;
-import com.usa.Reto2.Servicio.UserService;
+import com.usa.Reto3.Modelo.User;
+import com.usa.Reto3.Servicio.UserService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,6 +38,15 @@ public class UserController {
    @GetMapping("/all")
     public List<User> getAll() {
         return userService.getAll();
+    }
+    /**
+     * 
+     * @param id
+     * @return 
+     */
+    @GetMapping("/{id}")
+    public Optional <User> getUser(@PathVariable("id") int id) {
+        return userService.getUser(id);
     }
     /**
      * 

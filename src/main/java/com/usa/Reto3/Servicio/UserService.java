@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.usa.Reto2.Servicio;
+package com.usa.Reto3.Servicio;
 
-import com.usa.Reto2.Modelo.User;
-import com.usa.Reto2.Repositorio.UserRepositorio;
+import com.usa.Reto3.Modelo.User;
+import com.usa.Reto3.Repositorio.UserRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,20 +30,31 @@ public class UserService {
     }
 
     public User create(User user) {
+        
+        //obtiene el maximo id existente en la coleccion
+        Optional<User> userIdMaximo = userRepository.lastUserId();
+        
+        //si el id del Usaurio que se recibe como parametro es nulo, entonces valida el maximo id existente en base de datos
         if (user.getId() == null) {
-            return user;            
-        }else {
-            Optional<User> e = userRepository.getUser(user.getId());
-            if (e.isEmpty()) {
-                if (emailExists(user.getEmail())==false){
-                    return userRepository.create(user);
-                }else{
-                    return user;
-                }
+            //valida el maximo id generado, si no hay ninguno aun el primer id sera 1
+            if (userIdMaximo.isEmpty())
+                user.setId(1);
+            //si retorna informacion suma 1 al maximo id existente y lo asigna como el codigo del usuario
+            else
+                user.setId(userIdMaximo.get().getId() + 1);
+        }
+        
+        Optional<User> e = userRepository.getUser(user.getId());
+        if (e.isEmpty()) {
+            if (emailExists(user.getEmail())==false){
+                return userRepository.create(user);
             }else{
                 return user;
+            }
+        }else{
+            return user;
             }           
-        }
+        
     }
 
     public User update(User user) {

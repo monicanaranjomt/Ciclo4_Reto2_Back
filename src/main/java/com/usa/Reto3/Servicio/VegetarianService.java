@@ -1,14 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.usa.Reto2.Servicio;
+package com.usa.Reto3.Servicio;
 
-import com.usa.Reto2.Modelo.Vegetarian;
-import com.usa.Reto2.Repositorio.VegetarianRepositorio;
+import com.usa.Reto3.Modelo.Vegetarian;
+import com.usa.Reto3.Repositorio.VegetarianRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,6 +16,9 @@ import org.springframework.stereotype.Service;
 public class VegetarianService {
    @Autowired
     private VegetarianRepositorio clotheRepository;
+   
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     public List<Vegetarian> getAll() {
         return clotheRepository.getAll();

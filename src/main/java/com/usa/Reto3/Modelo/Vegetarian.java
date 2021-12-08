@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.usa.Reto2.Modelo;
+package com.usa.Reto3.Modelo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,19 +14,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
  *
  * @author Viviana Naranjo
  */
-@Document(collection = "usuarios")
+@Document(collection = "supplements")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Vegetarian {
     @Id
-    private Integer id;
-    private String identification;
-    private String name;
-    private String address;
-    private String cellPhone;
-    private String email;
-    private String password;
-    private String zone;
-    private String type;
+    private String reference;
+    private String brand;
+    private String category;
+    private String description;
+    private boolean availability = true;
+    private double price;
+    private int quantity;
+    private String photography;
+
 }
