@@ -1,7 +1,7 @@
-package com.usa.Reto3.Servicio;
+package com.usa.Reto4.Servicio;
 
-import com.usa.Reto3.Modelo.Vegetarian;
-import com.usa.Reto3.Repositorio.VegetarianRepositorio;
+import com.usa.Reto4.Modelo.Vegetarian;
+import com.usa.Reto4.Repositorio.VegetarianRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

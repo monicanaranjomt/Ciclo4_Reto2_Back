@@ -1,7 +1,7 @@
-package com.usa.Reto3.Servicio;
+package com.usa.Reto4.Servicio;
 
-import com.usa.Reto3.Modelo.Order;
-import com.usa.Reto3.Repositorio.OrderRepositorio;
+import com.usa.Reto4.Modelo.Order;
+import com.usa.Reto4.Repositorio.OrderRepositorio;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,14 +78,20 @@ public class OrderService {
     public List<Order> findByZone(String zona) {
         return orderRepositorio.findByZone(zona);
     }
-//
-//    public List<Order> ordersSalesManByDate(String dateStr, int id) {
-//        return orderRepository.ordersSalesManByDate(dateStr, id);
-//    }
-//    
-//    public List<Order> ordersSalesManByState(String state, Integer id) {
-//        return orderRepository.ordersSalesManByState(state, id);
-//    }
+    //Reto 4--
+    
+    // Ordenes de un asesor
+    public List<Order> ordersSalesManByID(Integer id){
+        return orderRepositorio.ordersSalesManByID(id);
+    }
+    // Ordenes de un asesor x Estado
+    public List<Order> ordersSalesManByState(String state, Integer id){
+        return orderRepositorio.ordersSalesManByState(state, id);
+    }
+    //Reto 4: Ordenes de un asesor x fecha
+    public List<Order> ordersSalesManByDate(String dateStr, Integer id) {
+        return orderRepositorio.ordersSalesManByDate(dateStr,id);
+    }
 }
 
 

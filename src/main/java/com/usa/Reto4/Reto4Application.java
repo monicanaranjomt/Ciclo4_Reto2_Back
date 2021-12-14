@@ -1,13 +1,13 @@
-package com.usa.Reto3;
+package com.usa.Reto4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Reto3Application {
+public class Reto4Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Reto3Application.class, args);
+		SpringApplication.run(Reto4Application.class, args);
 	}
 
 }

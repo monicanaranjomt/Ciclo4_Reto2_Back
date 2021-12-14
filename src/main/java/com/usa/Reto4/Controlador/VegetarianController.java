@@ -1,7 +1,7 @@
-package com.usa.Reto3.Controlador;
+package com.usa.Reto4.Controlador;
 
-import com.usa.Reto3.Modelo.Order;
-import com.usa.Reto3.Servicio.OrderService;
+import com.usa.Reto4.Modelo.Vegetarian;
+import com.usa.Reto4.Servicio.VegetarianService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,45 +22,40 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Viviana Naranjo
  */
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/api/vegetarian")
 @CrossOrigin("*")
-public class OrderController {
-
+public class VegetarianController {
+    
     @Autowired
-    private OrderService orderService;
-
+    private VegetarianService accessoryService;
+       
     @GetMapping("/all")
-    public List<Order> getAll() {
-        return orderService.getAll();
+    public List<Vegetarian> getAll() {
+        return accessoryService.getAll();
     }
-
-    @GetMapping("/{id}")
-    public Optional<Order> getOrder(@PathVariable("id") int id) {
-        return orderService.getOrder(id);
+    
+    @GetMapping("/{reference}")
+    public Optional<Vegetarian> getClothe(@PathVariable("reference") String reference) {
+        return accessoryService.getClothe(reference);
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Order create(@RequestBody Order gadget) {
-        return orderService.create(gadget);
-    }
-
-    @PutMapping("/update")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Order update(@RequestBody Order gadget) {
-        return orderService.update(gadget);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id) {
-        return orderService.delete(id);
+    public Vegetarian create(@RequestBody Vegetarian gadget) {
+        return accessoryService.create(gadget);
     }
     
-    //Reto 3:Ordenes de pedido asociadas a los asesores de una zona
-    @GetMapping("/zona/{zona}")
-    public List<Order> findByZone(@PathVariable("zona") String zona) {
-        return orderService.findByZone(zona);
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Vegetarian update(@RequestBody Vegetarian gadget) {
+        return accessoryService.update(gadget);
     }
+
+    @DeleteMapping("/{reference}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean delete(@PathVariable("reference") String reference) {
+        return accessoryService.delete(reference);
+    } 
+    
 }
 

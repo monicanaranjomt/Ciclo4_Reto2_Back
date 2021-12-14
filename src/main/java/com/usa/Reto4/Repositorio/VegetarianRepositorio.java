@@ -1,11 +1,11 @@
-package com.usa.Reto3.Repositorio;
+package com.usa.Reto4.Repositorio;
 
-import com.usa.Reto3.Modelo.Vegetarian;
+import com.usa.Reto4.Modelo.Vegetarian;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.usa.Reto3.Interface.InterfaceVegetarian;
+import com.usa.Reto4.Interface.InterfaceVegetarian;
 
 /**
  *
